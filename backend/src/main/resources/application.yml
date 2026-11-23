@@ -1,0 +1,30 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: oss-radar
+  datasource:
+    url: jdbc:h2:file:./data/ossradar;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+ossradar:
+  github:
+    api-base: https://api.github.com
+    token: ${GITHUB_TOKEN:}
+---
+spring:
+  config:
+    activate:
+      on-profile: postgres
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+    driver-class-name: org.postgresql.Driver

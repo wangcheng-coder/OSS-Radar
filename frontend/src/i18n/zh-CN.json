@@ -1,0 +1,11 @@
+{
+  "appName": "OSS Radar",
+  "tagline": "基于证据的开源项目健康度分析",
+  "search": "搜索仓库",
+  "language": "语言",
+  "analyze": "健康度分析",
+  "watchlist": "关注列表",
+  "addWatch": "加入关注",
+  "compare": "对比",
+  "refresh": "刷新"
+}

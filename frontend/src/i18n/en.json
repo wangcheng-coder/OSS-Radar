@@ -1,0 +1,11 @@
+{
+  "appName": "OSS Radar",
+  "tagline": "Evidence-based open source health analytics",
+  "search": "Search repositories",
+  "language": "Language",
+  "analyze": "Analyze health",
+  "watchlist": "Watchlist",
+  "addWatch": "Add to watchlist",
+  "compare": "Compare",
+  "refresh": "Refresh"
+}

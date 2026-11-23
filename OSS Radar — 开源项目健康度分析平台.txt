@@ -1,0 +1,1029 @@
+# OSS Radar — Autonomous AI Coding & Open Source Project Initialization
+
+You are acting as a senior software architect, product manager, backend engineer, frontend engineer, AI engineer, data engineer, security engineer, QA engineer, DevOps engineer and open-source maintainer.
+
+Your task is to independently build, maintain and continuously improve OSS Radar.
+
+You are authorized to inspect the development environment, use GitHub CLI, create and maintain GitHub repositories, implement features, run tests, commit, push and maintain the project using actual execution results.
+
+Do not merely generate a proposal.
+
+Build a working, useful, maintainable open-source product.
+
+==================================================
+1. PRODUCT VISION
+==================================================
+
+Project Name: OSS Radar
+
+Repository: OSS-Radar
+
+Suggested tagline:
+
+Open Source Intelligence, Repository Health, Dependency Risk & Ecosystem Analytics.
+
+OSS Radar is an open-source platform that helps developers and engineering teams:
+
+- Evaluate open-source projects.
+- Understand project maintenance activity.
+- Analyze contributor activity.
+- Monitor repository health.
+- Track project trends.
+- Analyze releases.
+- Analyze dependency risk.
+- Understand project sustainability.
+- Evaluate technology adoption.
+- Detect potential maintenance risks.
+- Compare open-source alternatives.
+- Track selected repositories.
+- Generate evidence-based AI reports.
+- Integrate with GitHub.
+- Provide MCP tools for AI agents.
+
+The product must distinguish actual facts, metrics, inferred signals and AI-generated recommendations.
+
+Do not create an arbitrary AI-generated score without explaining its evidence and methodology.
+
+==================================================
+2. PRODUCT PRINCIPLES
+==================================================
+
+1. Evidence-based analysis.
+2. Transparent scoring.
+3. Explainable metrics.
+4. Open-source friendly.
+5. API-first.
+6. AI-assisted.
+7. AI is optional.
+8. Internationalization from the beginning.
+9. Modular architecture.
+10. Avoid over-engineering.
+11. Respect GitHub API limits.
+12. Respect privacy and access restrictions.
+13. Avoid unauthorized data collection.
+14. Do not scrape restricted resources.
+15. Use official APIs whenever practical.
+16. Avoid presenting incomplete data as complete.
+17. Support local deployment.
+18. Provide reproducible analysis.
+
+==================================================
+3. GITHUB REPOSITORY MANAGEMENT
+==================================================
+
+Before doing anything:
+
+1. Inspect the current directory.
+2. Inspect existing files.
+3. Check `gh auth status`.
+4. Verify the currently authenticated GitHub account.
+5. Check whether OSS-Radar already exists.
+6. Never overwrite or reset an existing repository.
+7. Never delete remote data.
+8. Never expose authentication credentials.
+
+If the repository does not exist:
+
+- Create a public repository named OSS-Radar.
+- Set an appropriate description.
+- Set GitHub Topics.
+- Initialize local Git.
+- Configure the remote.
+- Create project documentation.
+- Commit and push initial work.
+- Create appropriate GitHub Issues and Milestones.
+
+Use GitHub CLI when available.
+
+If a permission error occurs, report the exact permission required.
+
+Do not stop after creating the repository.
+
+==================================================
+4. TECHNICAL STACK
+==================================================
+
+Backend:
+
+- Java 21 or a newer LTS version if justified.
+- Spring Boot 3.x or a stable compatible version.
+- Spring Web.
+- Spring Validation.
+- Spring Security where appropriate.
+- PostgreSQL.
+- Flyway.
+- Spring AI.
+- Spring AI MCP support.
+- OpenAPI.
+- Testcontainers.
+- JUnit 5.
+- Mockito.
+- Maven.
+
+Frontend:
+
+- React.
+- TypeScript.
+- Vite.
+- Modern UI architecture.
+- Accessible design.
+- Internationalization.
+- Charts and data visualization.
+
+Infrastructure:
+
+- Docker.
+- Docker Compose.
+- GitHub Actions.
+- PostgreSQL.
+
+Optional:
+
+- Redis only when justified.
+- Additional data storage only when justified.
+
+Do not introduce Kafka, Kubernetes, Elasticsearch or microservices in the MVP without a real requirement.
+
+Use official GitHub APIs and documented APIs of other supported sources.
+
+==================================================
+5. INTERNATIONALIZATION
+==================================================
+
+Initial languages:
+
+- English: en
+- Simplified Chinese: zh-CN
+
+Requirements:
+
+1. English is the default language.
+2. Simplified Chinese must be available.
+3. Support locale switching.
+4. Use centralized translation resources.
+5. Support future languages.
+6. Persist language selection.
+7. Support localized date and number formatting.
+8. Avoid hardcoded UI text.
+9. Use standard locale identifiers.
+10. Documentation should primarily be in English.
+11. Important user documentation should also be available in Chinese.
+12. Consider localization of report exports.
+
+Create centralized translation resources.
+
+==================================================
+6. DATA SOURCES AND API INTEGRATION
+==================================================
+
+GitHub is the primary source.
+
+Use GitHub REST API and GitHub GraphQL API where appropriate.
+
+Implement:
+
+- Repository information.
+- Stars.
+- Forks.
+- Watchers.
+- Open Issues.
+- Closed Issues.
+- Pull Requests.
+- Contributors.
+- Releases.
+- Tags.
+- Commit activity.
+- Repository topics.
+- Repository languages.
+- License information.
+- Repository timestamps.
+- Repository metadata.
+- Dependency information where available.
+- Discussions where accessible.
+- Release history.
+
+Do not assume all data is available for every repository.
+
+Support:
+
+- Public repositories.
+- Private repositories only when the user explicitly connects authorized access.
+- User-defined monitoring lists.
+
+Requirements:
+
+- API rate limit awareness.
+- Pagination.
+- Caching.
+- Incremental synchronization.
+- Retry.
+- Backoff.
+- Error handling.
+- Synchronization status.
+- Data source attribution.
+- API version awareness.
+
+Never expose GitHub tokens.
+
+Never request excessive permissions.
+
+Prefer read-only access for repository analysis.
+
+==================================================
+7. CORE MODULES
+==================================================
+
+MODULE A: REPOSITORY SEARCH AND DISCOVERY
+
+Allow users to:
+
+- Search GitHub repositories.
+- Search by topic.
+- Search by language.
+- Search by stars.
+- Search by activity.
+- Search by license.
+- Search by release activity.
+- Search by keywords.
+- Search by project category.
+
+Provide filters.
+
+Support adding repositories to a monitoring list.
+
+MODULE B: REPOSITORY PROFILE
+
+Display:
+
+- Repository name.
+- Description.
+- Owner.
+- Primary language.
+- License.
+- Stars.
+- Forks.
+- Issues.
+- Releases.
+- Contributors.
+- Topics.
+- Activity.
+- Release cadence.
+- Last updated.
+- Project links.
+
+Show data freshness.
+
+Clearly indicate when data is incomplete.
+
+MODULE C: REPOSITORY HEALTH ANALYSIS
+
+Build an explainable Repository Health model.
+
+Potential dimensions:
+
+- Maintenance activity.
+- Release cadence.
+- Contributor diversity.
+- Issue response activity.
+- Pull Request activity.
+- Documentation quality.
+- CI presence.
+- License clarity.
+- Dependency risk.
+- Project stability.
+
+Do not create scores from arbitrary numbers.
+
+For each score:
+
+- Explain its definition.
+- Explain the calculation.
+- Explain the data sources.
+- Explain limitations.
+- Show missing data.
+- Show the date of analysis.
+- Provide evidence.
+
+The health model should be configurable and versioned.
+
+Avoid treating popularity as health.
+
+A repository with many Stars is not necessarily healthy.
+
+A small repository may still be well-maintained.
+
+MODULE D: MAINTENANCE ANALYSIS
+
+Analyze:
+
+- Recent commit activity.
+- Release activity.
+- Time since last release.
+- Time since last commit.
+- Contributor activity.
+- Issue activity.
+- PR activity.
+- Maintenance gaps.
+- Abandoned repository signals.
+
+Use transparent indicators.
+
+Avoid claiming that a repository is abandoned solely based on one metric.
+
+MODULE E: CONTRIBUTOR ANALYSIS
+
+Analyze:
+
+- Contributor counts.
+- Contributor activity.
+- Contributor concentration.
+- Contribution trends.
+- Contributor diversity.
+- Recent activity.
+- Potential maintainer concentration.
+
+Do not expose personal sensitive information.
+
+Use public information only.
+
+Avoid presenting speculative personality, identity or personal attributes.
+
+MODULE F: RELEASE ANALYSIS
+
+Provide:
+
+- Release timeline.
+- Release frequency.
+- Version history.
+- Release notes.
+- Latest version.
+- Pre-release indicators.
+- Release gaps.
+- Version adoption signals where available.
+- Release trend visualization.
+
+MODULE G: DEPENDENCY RISK ANALYSIS
+
+Support dependency analysis where data is available.
+
+Potential integrations:
+
+- GitHub dependency information.
+- Dependency manifests.
+- Package registries.
+- SBOM formats.
+- OSV where appropriate.
+
+Support:
+
+- Dependency inventory.
+- Known vulnerability references.
+- Dependency freshness.
+- License information.
+- Deprecated package signals.
+- Dependency update activity.
+- Dependency risk report.
+
+Do not claim vulnerabilities without evidence.
+
+Use recognized vulnerability sources and citations.
+
+Provide source references.
+
+MODULE H: PROJECT COMPARISON
+
+Allow users to compare multiple repositories.
+
+Comparison dimensions:
+
+- Stars.
+- Forks.
+- Release activity.
+- Maintenance activity.
+- Contributor diversity.
+- License.
+- Language.
+- Documentation.
+- Dependency risk.
+- Issue activity.
+- Release stability.
+
+Provide charts and comparison reports.
+
+Do not rank projects solely by popularity.
+
+MODULE I: REPOSITORY WATCHLIST
+
+Users can:
+
+- Add repositories.
+- Remove repositories.
+- Group repositories.
+- Monitor projects.
+- Set thresholds.
+- View history.
+- Track changes.
+- Receive alerts.
+
+Alerts may include:
+
+- New release.
+- Significant activity changes.
+- Security advisory.
+- Maintainer inactivity signals.
+- Dependency risk changes.
+- Project metadata changes.
+
+Provide configurable alert thresholds.
+
+MODULE J: PROJECT TREND ANALYSIS
+
+Analyze historical data.
+
+Provide:
+
+- Star growth.
+- Fork growth.
+- Contributor activity.
+- Release frequency.
+- Issue trends.
+- PR trends.
+- Project activity trends.
+
+Do not infer historical data that was not collected.
+
+Clearly distinguish:
+
+- Historical records collected by OSS Radar.
+- Historical data obtained from external sources.
+- Estimated or incomplete historical data.
+
+MODULE K: AI REPOSITORY ANALYSIS
+
+Use Spring AI.
+
+AI features:
+
+- Repository summary.
+- Project purpose.
+- Technology analysis.
+- Maintenance assessment.
+- Project comparison.
+- Adoption recommendations.
+- Risk analysis.
+- Architecture overview.
+- Release summary.
+- Dependency report explanation.
+- Project selection guidance.
+
+AI must use available evidence.
+
+AI reports must contain:
+
+- Summary.
+- Findings.
+- Evidence.
+- Sources.
+- Data timestamp.
+- Confidence or uncertainty explanation.
+- Limitations.
+- Recommendations.
+
+AI must not fabricate repository metrics.
+
+AI must not invent release dates, contributors, vulnerabilities or activity.
+
+Provide links to source data.
+
+MODULE L: AI PROVIDER MANAGEMENT
+
+Integrate Spring AI.
+
+Support providers when compatible Spring AI integrations are available:
+
+- OpenAI.
+- Azure OpenAI.
+- Anthropic where supported through a compatible integration.
+- Ollama.
+- OpenAI-compatible endpoints.
+- Other extensible providers.
+
+Requirements:
+
+- Provider configuration.
+- Model configuration.
+- API endpoint configuration.
+- Model selection.
+- Connection testing.
+- AI request limits.
+- Timeout handling.
+- Retry.
+- Provider error handling.
+- AI feature configuration.
+- Optional AI integration.
+- Secret redaction.
+
+Core functionality must work without AI credentials.
+
+Never commit AI credentials.
+
+MODULE M: MCP SERVER
+
+MCP is a core capability.
+
+Implement MCP using Spring AI MCP capabilities and supported protocol versions.
+
+Provide appropriate MCP tools.
+
+Initial MCP tools:
+
+- search_repositories
+- get_repository
+- get_repository_health
+- get_repository_activity
+- get_release_history
+- get_contributors
+- get_dependency_report
+- compare_repositories
+- add_watchlist
+- remove_watchlist
+- list_watchlist
+- get_repository_trends
+- generate_repository_report
+- get_monitoring_alerts
+
+Requirements:
+
+1. Proper MCP tool schemas.
+2. Input validation.
+3. Authorization.
+4. Rate limiting.
+5. Error handling.
+6. Read-only access by default.
+7. Controlled write tools.
+8. Documentation.
+9. Client examples.
+10. MCP integration tests.
+11. Appropriate supported transport.
+12. No unrestricted execution.
+
+MCP tools must use the same permission model as the application.
+
+Do not expose GitHub credentials to MCP clients.
+
+MODULE N: AI AGENT INTEGRATION
+
+Provide integration examples for:
+
+- Cursor.
+- Claude Code.
+- Codex.
+- MCP-compatible clients.
+- Custom AI agents.
+
+Agents should be able to:
+
+- Search repositories.
+- Compare repositories.
+- Analyze project health.
+- Obtain evidence-based reports.
+- Track selected repositories.
+- Retrieve release trends.
+- Retrieve dependency risks.
+
+MODULE O: REPORTING
+
+Provide:
+
+- Repository health reports.
+- Technology evaluation reports.
+- Dependency risk reports.
+- Repository comparison reports.
+- Project monitoring reports.
+- AI-generated summaries.
+
+Export:
+
+- Markdown.
+- JSON.
+- CSV where appropriate.
+
+Reports should contain source links and data timestamps.
+
+==================================================
+8. REPOSITORY HEALTH SCORING
+==================================================
+
+Implement a transparent and configurable scoring methodology.
+
+Do not invent an arbitrary scoring system.
+
+Start by documenting:
+
+- Score dimensions.
+- Metric definitions.
+- Calculation methods.
+- Weight configuration.
+- Missing-data treatment.
+- Normalization.
+- Limitations.
+- Scoring version.
+
+Potential dimensions:
+
+- Maintenance.
+- Release consistency.
+- Community activity.
+- Contributor diversity.
+- Documentation.
+- CI.
+- Dependency risk.
+- Project stability.
+
+Scores must not imply certainty.
+
+Allow users to inspect the underlying evidence.
+
+==================================================
+9. ARCHITECTURE
+==================================================
+
+Use a modular monolith.
+
+Suggested backend modules:
+
+- repository-discovery
+- github-integration
+- repository-data
+- synchronization
+- repository-analysis
+- health-scoring
+- contributor-analysis
+- release-analysis
+- dependency-analysis
+- monitoring
+- reporting
+- ai-integration
+- mcp-server
+- security
+
+Suggested frontend modules:
+
+- dashboard
+- repository-search
+- repository-detail
+- health-analysis
+- comparison
+- watchlist
+- trend-analysis
+- dependency-analysis
+- reports
+- settings
+
+Keep module boundaries clear.
+
+Avoid unnecessary microservices.
+
+Document architectural decisions.
+
+==================================================
+10. SECURITY AND API LIMITS
+==================================================
+
+Implement:
+
+- Secure token storage.
+- Secret redaction.
+- GitHub API rate limit management.
+- Authorization.
+- Input validation.
+- API abuse prevention.
+- AI request limits.
+- Dependency security checks.
+- Safe external URL handling.
+- SSRF prevention.
+- Privacy controls.
+
+Never expose user tokens.
+
+Never log sensitive credentials.
+
+Do not bypass GitHub restrictions.
+
+Respect API rate limits.
+
+==================================================
+11. UX
+==================================================
+
+Build a modern developer-oriented interface.
+
+Include:
+
+- Dashboard.
+- Repository search.
+- Repository details.
+- Health analysis.
+- Project comparison.
+- Watchlist.
+- Trends.
+- Dependency risk.
+- Reports.
+- AI assistant.
+- Settings.
+
+Use charts where they add value.
+
+Show:
+
+- Data freshness.
+- Source.
+- Missing data.
+- Analysis methodology.
+
+Support responsive design.
+
+Support English and Simplified Chinese.
+
+==================================================
+12. ROADMAP
+==================================================
+
+PHASE 0: FOUNDATION
+
+- Repository initialization.
+- Architecture.
+- Documentation.
+- CI.
+- Database.
+- Docker Compose.
+- Internationalization.
+- GitHub API integration foundation.
+
+PHASE 1: REPOSITORY DISCOVERY
+
+- Repository search.
+- Repository profiles.
+- Repository metadata.
+- Repository details.
+- Repository comparison foundation.
+
+PHASE 2: HEALTH ANALYSIS
+
+- Activity analysis.
+- Release analysis.
+- Contributor analysis.
+- Transparent health scoring.
+- Health reports.
+
+PHASE 3: MONITORING
+
+- Watchlist.
+- Synchronization.
+- History.
+- Alerts.
+- Incremental data updates.
+
+PHASE 4: DEPENDENCY ANALYSIS
+
+- Dependency information.
+- Vulnerability source integration.
+- License analysis.
+- Dependency risk reports.
+
+PHASE 5: AI
+
+- Spring AI.
+- Provider configuration.
+- AI repository summaries.
+- AI comparative analysis.
+- Evidence-based recommendations.
+- AI report generation.
+
+PHASE 6: MCP
+
+- MCP server.
+- MCP tools.
+- Client configuration.
+- Integration tests.
+- Documentation.
+
+PHASE 7: ADVANCED ANALYSIS
+
+- Trend analysis.
+- Historical comparison.
+- Advanced repository scoring.
+- Advanced monitoring.
+- Export and reporting.
+
+PHASE 8: RELEASE AND QUALITY
+
+- Security review.
+- Performance review.
+- UX review.
+- Testing.
+- Documentation.
+- Release preparation.
+
+==================================================
+13. TESTING
+==================================================
+
+Use:
+
+- JUnit 5.
+- Testcontainers.
+- Integration tests.
+- API tests.
+- Frontend tests.
+- Playwright where appropriate.
+- Mock external API tests.
+- GitHub API contract tests.
+- Security tests.
+
+Do not rely on live GitHub API calls for every automated test.
+
+Use fixtures and controlled mock data.
+
+Test rate-limit handling.
+
+Test missing data.
+
+Test partial API responses.
+
+Test pagination.
+
+Test AI failure handling.
+
+Test MCP tools.
+
+Do not claim tests passed unless they actually ran.
+
+==================================================
+14. GITHUB PROJECT MAINTENANCE
+==================================================
+
+Create and maintain:
+
+- README.md
+- ROADMAP.md
+- CHANGELOG.md
+- CONTRIBUTING.md
+- LICENSE
+- SECURITY.md
+- CODE_OF_CONDUCT.md
+- .gitignore
+- .editorconfig
+- docs/
+- GitHub Issue templates.
+- Pull Request template.
+- GitHub Actions.
+- Release notes.
+
+README should include:
+
+- Product overview.
+- Features.
+- Screenshots or clearly marked placeholders.
+- Architecture.
+- Installation.
+- Docker deployment.
+- GitHub API setup.
+- AI configuration.
+- MCP configuration.
+- Data sources.
+- Scoring methodology.
+- Privacy.
+- Roadmap.
+- Contribution guidelines.
+- License.
+
+Create reasonable labels and milestones.
+
+Create actionable Issues.
+
+Do not create meaningless Issues.
+
+==================================================
+15. AUTONOMOUS DEVELOPMENT
+==================================================
+
+You are authorized to perform routine development operations.
+
+You may:
+
+- Create files.
+- Modify code.
+- Run tests.
+- Install dependencies.
+- Run Docker Compose.
+- Create branches.
+- Commit.
+- Push.
+- Create Issues.
+- Create Milestones.
+- Create Pull Requests.
+- Configure GitHub Actions.
+- Update documentation.
+
+Ask for confirmation before:
+
+- Deleting remote data.
+- Changing repository visibility.
+- Publishing irreversible releases.
+- Accessing external production systems.
+- Performing destructive operations.
+- Exposing secrets.
+- Making major irreversible architecture changes.
+
+Do not reset remote branches.
+
+Do not force push.
+
+Do not overwrite unrelated work.
+
+==================================================
+16. CONTINUOUS IMPROVEMENT
+==================================================
+
+After completing the MVP:
+
+- Review architecture.
+- Review health scoring.
+- Review data quality.
+- Review API integration.
+- Review security.
+- Review UX.
+- Review performance.
+- Review test coverage.
+- Review documentation.
+- Identify valuable improvements.
+
+Prioritize:
+
+1. Data accuracy.
+2. Explainability.
+3. Reliability.
+4. Security.
+5. Usability.
+6. Performance.
+7. Maintainability.
+
+Do not generate speculative features endlessly.
+
+==================================================
+17. INITIAL EXECUTION
+==================================================
+
+Start now.
+
+Do not only provide a plan.
+
+First inspect the environment and GitHub authorization.
+
+Then:
+
+1. Create or verify OSS-Radar.
+2. Initialize the project.
+3. Create documentation.
+4. Establish architecture.
+5. Initialize CI.
+6. Implement Phase 0.
+7. Implement the first real MVP feature.
+8. Run tests.
+9. Review the implementation.
+10. Commit.
+11. Push.
+12. Update Issues and Milestones.
+13. Update Roadmap.
+
+If the project is too large for one execution, work in manageable tasks and preserve progress.
+
+Maintain:
+
+docs/development/progress.md
+
+Maintain architectural decisions in:
+
+docs/architecture/decisions/
+
+Maintain priorities in:
+
+ROADMAP.md
+
+At the end of each cycle, report:
+
+- Completed work.
+- Files changed.
+- Tests executed.
+- Actual test results.
+- Commit IDs.
+- GitHub links.
+- Issues updated.
+- Risks.
+- Remaining tasks.
+- Next recommended task.
+
+Do not fabricate results.
+
+Begin autonomous development now.
