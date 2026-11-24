@@ -56,6 +56,15 @@ public class HealthScoreService {
                 "contributorCountSample", contributors.size(),
                 "htmlUrl", text(repo, "html_url"),
                 "archived", archived));
+        List<String> riskFlags = new ArrayList<>();
+        if (archived) {
+            riskFlags.add("archived");
+        }
+        String license = text(repo.path("license"), "spdx_id");
+        if (license == null || license.isBlank() || "NOASSERTION".equals(license)) {
+            riskFlags.add("missing_license");
+        }
+        result.put("riskFlags", riskFlags);
         result.put("kind", Map.of(
                 "facts", "GitHub API fields used as-is",
                 "inferred", "Dimension scores derived by health-v1 formulas",

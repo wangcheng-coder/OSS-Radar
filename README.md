@@ -7,7 +7,7 @@ OSS Radar helps teams evaluate open-source projects with **evidence-based** metr
 ## What works in 0.1.0
 
 - GitHub repository search and profiles
-- Transparent health scoring (maintenance, releases, community, docs/CI signals). Archived repositories cap the maintenance score at 15.
+- Transparent health scoring (maintenance, releases, community, docs/CI signals). Archived repositories cap the maintenance score at 15. Reports also list risk flags for archived repositories and a missing SPDX license.
 - Contributor and release summaries
 - Watchlist CRUD
 - Compare repositories

@@ -44,6 +44,7 @@ class HealthScoreServiceTest {
         assertTrue(score.containsKey("evidence"));
         assertTrue(score.containsKey("dimensions"));
         assertEquals(false, ((Map<?, ?>) score.get("evidence")).get("archived"));
+        assertTrue(!((List<?>) score.get("riskFlags")).contains("missing_license"));
     }
 
     @Test
@@ -63,5 +64,7 @@ class HealthScoreServiceTest {
         List<Map<String, Object>> dimensions = (List<Map<String, Object>>) score.get("dimensions");
         assertEquals(15.0, ((Number) dimensions.get(0).get("score")).doubleValue());
         assertEquals(true, ((Map<?, ?>) score.get("evidence")).get("archived"));
+        assertTrue(((List<?>) score.get("riskFlags")).contains("archived"));
+        assertTrue(((List<?>) score.get("riskFlags")).contains("missing_license"));
     }
 }
