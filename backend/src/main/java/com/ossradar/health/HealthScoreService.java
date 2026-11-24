@@ -16,6 +16,16 @@ public class HealthScoreService {
         Instant now = Instant.now();
 
         Dimension maintenance = scoreMaintenance(repo, now, missing);
+        boolean archived = repo.path("archived").asBoolean(false);
+        if (archived) {
+            maintenance = Dimension.of(
+                    "maintenance",
+                    Math.min(maintenance.score(), 15),
+                    maintenance.definition(),
+                    "archived=true; " + maintenance.calculation() + "; score capped at 15",
+                    maintenance.inputs());
+            missing.add("archived");
+        }
         Dimension release = scoreRelease(releases, now, missing);
         Dimension community = scoreCommunity(repo, contributors, missing);
         Dimension docsCi = scoreDocsCi(repo, missing);
@@ -34,7 +44,8 @@ public class HealthScoreService {
         result.put("limitations", List.of(
                 "Popularity is a weak signal and never dominates health.",
                 "Contributor lists may be truncated by GitHub API pagination.",
-                "Documentation/CI signals are heuristic without cloning the repository."));
+                "Documentation/CI signals are heuristic without cloning the repository.",
+                "An archived repository caps the maintenance score at 15."));
         result.put("evidence", Map.of(
                 "fullName", text(repo, "full_name"),
                 "pushedAt", text(repo, "pushed_at"),
@@ -43,7 +54,8 @@ public class HealthScoreService {
                 "forks", repo.path("forks_count").asInt(-1),
                 "releaseCountSample", releases.size(),
                 "contributorCountSample", contributors.size(),
-                "htmlUrl", text(repo, "html_url")));
+                "htmlUrl", text(repo, "html_url"),
+                "archived", archived));
         result.put("kind", Map.of(
                 "facts", "GitHub API fields used as-is",
                 "inferred", "Dimension scores derived by health-v1 formulas",

@@ -43,5 +43,25 @@ class HealthScoreServiceTest {
         assertTrue(((Number) score.get("overallScore")).doubleValue() > 50);
         assertTrue(score.containsKey("evidence"));
         assertTrue(score.containsKey("dimensions"));
+        assertEquals(false, ((Map<?, ?>) score.get("evidence")).get("archived"));
+    }
+
+    @Test
+    void archivedRepositoryCapsMaintenance() {
+        ObjectNode repo = mapper.createObjectNode();
+        repo.put("full_name", "acme/old");
+        repo.put("html_url", "https://github.com/acme/old");
+        repo.put("pushed_at", Instant.now().minus(1, ChronoUnit.DAYS).toString());
+        repo.put("archived", true);
+        repo.put("open_issues_count", 0);
+        repo.put("stargazers_count", 10);
+        repo.put("forks_count", 1);
+        repo.put("description", "Old");
+
+        Map<String, Object> score = service.score(repo, List.of(), List.of());
+        @SuppressWarnings("unchecked")
+        List<Map<String, Object>> dimensions = (List<Map<String, Object>>) score.get("dimensions");
+        assertEquals(15.0, ((Number) dimensions.get(0).get("score")).doubleValue());
+        assertEquals(true, ((Map<?, ?>) score.get("evidence")).get("archived"));
     }
 }
