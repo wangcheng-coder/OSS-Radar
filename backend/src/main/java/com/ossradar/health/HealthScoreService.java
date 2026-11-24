@@ -67,7 +67,7 @@ public class HealthScoreService {
                 score,
                 "How recently the repository receives commits/pushes, adjusted by open issue load",
                 "freshnessFromPushedAt - min(30, open_issues/20); daysSincePush=" + days,
-                List.of("pushed_at=" + pushed, "open_issues_count=" + openIssues));
+                List.of("pushed_at=" + pushed, "open_issues_count=" + openIssues + " (includes open pull requests)"));
     }
 
     private Dimension scoreRelease(List<JsonNode> releases, Instant now, List<String> missing) {

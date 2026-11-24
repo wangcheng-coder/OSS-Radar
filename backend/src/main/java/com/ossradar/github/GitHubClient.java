@@ -49,18 +49,16 @@ public class GitHubClient {
     }
 
     public List<JsonNode> listReleases(String owner, String repo) {
-        JsonNode arr = get(apiBase + "/repos/" + owner + "/" + repo + "/releases?per_page=20");
-        List<JsonNode> list = new ArrayList<>();
-        if (arr.isArray()) {
-            arr.forEach(list::add);
-        }
-        return list;
+        return arrayOrEmpty(get(apiBase + "/repos/" + owner + "/" + repo + "/releases?per_page=20"));
     }
 
     public List<JsonNode> listContributors(String owner, String repo) {
-        JsonNode arr = get(apiBase + "/repos/" + owner + "/" + repo + "/contributors?per_page=30");
+        return arrayOrEmpty(get(apiBase + "/repos/" + owner + "/" + repo + "/contributors?per_page=30"));
+    }
+
+    private static List<JsonNode> arrayOrEmpty(JsonNode arr) {
         List<JsonNode> list = new ArrayList<>();
-        if (arr.isArray()) {
+        if (arr != null && arr.isArray()) {
             arr.forEach(list::add);
         }
         return list;
